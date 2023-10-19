@@ -9,7 +9,7 @@ var game_data = {
 
 func _ready():
 	load_data()
-	
+
 func load_data():
 	var file = FileAccess.open(SAVEFILE, FileAccess.READ)
 	if file == null:
@@ -32,3 +32,7 @@ func setData(key: String, value):
 func save(key: String, value):
 	game_data[key] = value
 	save_data()
+
+
+func _test_pr():
+	print('a')
