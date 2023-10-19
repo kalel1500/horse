@@ -1,4 +1,4 @@
-class_name MyGlobal
+class_name Helpers
 
 static func sum_in_string(value: String, sum: int) -> String:
 	var intCurrent = int(value)

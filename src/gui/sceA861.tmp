@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ci1jl0r8o0od0" path="res://icon.svg" id="3_8igj6"]
 [ext_resource type="Script" path="res://src/gui/scripts/GodotIcon.gd" id="3_50o0e"]
 [ext_resource type="Script" path="res://src/gui/scripts/TimeNumber.gd" id="4_8io28"]
+[ext_resource type="Script" path="res://src/gui/scripts/SumScoreButton.gd" id="4_mbo3b"]
 [ext_resource type="Script" path="res://src/gui/scripts/ScoreNumber.gd" id="6_u4woi"]
-[ext_resource type="Script" path="res://src/gui/scripts/BtnSave.gd" id="6_ufkxx"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -55,9 +55,10 @@ position = Vector2(95, -121.5)
 texture = ExtResource("3_8igj6")
 script = ExtResource("3_50o0e")
 
-[node name="BtnSum" type="Button" parent="SumPanel/VerticalItems"]
+[node name="SumScoreButton" type="Button" parent="SumPanel/VerticalItems"]
 layout_mode = 2
 text = "Sumar puntos"
+script = ExtResource("4_mbo3b")
 
 [node name="ResultSlider" type="HSlider" parent="SumPanel/VerticalItems"]
 custom_minimum_size = Vector2(200, 0)
@@ -95,13 +96,7 @@ layout_mode = 2
 text = "00"
 script = ExtResource("6_u4woi")
 
-[node name="BtnSave" type="Button" parent="SumPanel/VerticalItems"]
-layout_mode = 2
-text = "Guardar"
-script = ExtResource("6_ufkxx")
-
 [connection signal="timeout" from="Timer" to="SumPanel/VerticalItems/GodotIcon" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="SumPanel/VerticalItems/Data/Time/TimeNumber" method="_on_timer_timeout"]
-[connection signal="pressed" from="SumPanel/VerticalItems/BtnSum" to="SumPanel/VerticalItems/Data/Score/ScoreNumber" method="_on_btn_sum_pressed"]
-[connection signal="pressed" from="SumPanel/VerticalItems/BtnSum" to="SumPanel/VerticalItems/BtnSave" method="_on_btn_sum_pressed"]
-[connection signal="pressed" from="SumPanel/VerticalItems/BtnSave" to="SumPanel/VerticalItems/BtnSave" method="_on_pressed"]
+[connection signal="button_down" from="SumPanel/VerticalItems/SumScoreButton" to="SumPanel/VerticalItems/SumScoreButton" method="_on_button_down"]
+[connection signal="pressed" from="SumPanel/VerticalItems/SumScoreButton" to="SumPanel/VerticalItems/Data/Score/ScoreNumber" method="_on_sum_score_button_pressed"]
