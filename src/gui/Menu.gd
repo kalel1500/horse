@@ -5,6 +5,8 @@ extends Control
 @onready var score_number = $SumPanel/VerticalItems/Data/Score/ScoreNumber
 @onready var result_slider = $SumPanel/VerticalItems/ResultSlider
 @onready var btn_save = $SumPanel/VerticalItems/BtnSave
+@onready var btn_sum = $SumPanel/VerticalItems/BtnSum
+@onready var timer = $Timer
 
 var time: int = 0
 var score: int = 0
@@ -18,6 +20,10 @@ func _ready():
 	self.score = Storage.getData("score")
 	score_number.text = str(self.score)
 	result_slider.value = self.score
+
+	timer.timeout.connect(_on_timer_timeout)
+	btn_sum.pressed.connect(_on_btn_sum_pressed)
+	btn_save.pressed.connect(_on_btn_save_pressed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
