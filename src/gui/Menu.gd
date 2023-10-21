@@ -19,8 +19,6 @@ func _ready():
 	score_number.text = str(self.score)
 	result_slider.value = self.score
 
-	Storage._test_pr()
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
