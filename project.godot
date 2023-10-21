@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 Storage="*res://src/shared/scripts/Storage.gd"
+Global="*res://src/shared/scripts/Global.gd"
 
 [rendering]
 
