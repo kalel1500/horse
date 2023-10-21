@@ -17,6 +17,14 @@ size_flags_horizontal = 4
 theme = ExtResource("1_xkrjh")
 script = ExtResource("2_f7whm")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0, 0.580392, 0.647059, 1)
+
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
